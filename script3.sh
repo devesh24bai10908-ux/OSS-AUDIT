@@ -1,9 +1,3 @@
-#!/bin/bash
-# Script 3: Disk and Permission Auditor
-# Author: Shubham Mishra | Registration: 24BCY10064
-# Purpose: Audit system directories for disk usage and permission details
-# Concepts: for loop, df, ls -ld, awk, cut, conditional logic
-
 echo "=================================="
 echo "   DISK AND PERMISSION AUDITOR"
 echo "=================================="
@@ -11,29 +5,21 @@ echo ""
 echo "Auditing critical system directories..."
 echo ""
 
-# --- Array of important system directories to audit ---
 DIRS=("/etc" "/var/log" "/home" "/usr/bin" "/tmp" "/var" "/boot")
 
-# --- Print header for the audit report ---
 printf "%-20s | %-20s | %-15s | %-10s\n" "DIRECTORY" "OWNER:GROUP" "PERMISSIONS" "SIZE"
 echo "=================================================================="
 
-# --- Loop through each directory and collect audit information ---
 for DIR in "${DIRS[@]}"; do
-    # Check if directory exists on the system
     if [ -d "$DIR" ]; then
-        # Extract permissions, owner, and group using ls and awk
-        PERMS=$(ls -ld "$DIR" | awk '{print $1}')      # Get permission bits (rwxrwxrwx)
-        OWNER=$(ls -ld "$DIR" | awk '{print $3}')      # Get owner name
-        GROUP=$(ls -ld "$DIR" | awk '{print $4}')      # Get group name
+        PERMS=$(ls -ld "$DIR" | awk '{print $1}')     
+        OWNER=$(ls -ld "$DIR" | awk '{print $3}')     
+        GROUP=$(ls -ld "$DIR" | awk '{print $4}')     
         
-        # Get disk usage in human-readable format
         SIZE=$(du -sh "$DIR" 2>/dev/null | cut -f1)
         
-        # Print formatted audit line
         printf "%-20s | %-20s | %-15s | %-10s\n" "$DIR" "$OWNER:$GROUP" "$PERMS" "$SIZE"
     else
-        # Directory does not exist on this system
         printf "%-20s | NOT FOUND on this system\n" "$DIR"
     fi
 done
@@ -44,7 +30,6 @@ echo "Python Software Configuration Check"
 echo "=================================="
 echo ""
 
-# --- Check for Python configuration and installation directories ---
 PYTHON_DIRS=("/usr/lib/python3" "/etc/python" "/usr/local/lib/python3")
 
 echo "Searching for Python-related directories..."
@@ -61,7 +46,6 @@ for PYDIR in "${PYTHON_DIRS[@]}"; do
     fi
 done
 
-# --- Check if Python is installed and accessible ---
 if command -v python3 &> /dev/null; then
     PYTHON_PATH=$(which python3)
     echo "✓ Python executable found at: $PYTHON_PATH"
