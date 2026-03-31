@@ -1,11 +1,4 @@
-#!/bin/bash
-# Script 2: FOSS Package Inspector
-# Author: Shubham Mishra | Registration: 24BCY10064
-# Purpose: Check if chosen software is installed and display its details
-# Concepts: if-then-else, case statement, rpm/dpkg queries, grep, pipe
-
-# --- Package name to check ---
-PACKAGE="python3"  # Change to your chosen software package name
+PACKAGE="python3"
 
 echo "=================================="
 echo "   FOSS PACKAGE INSPECTOR"
@@ -14,23 +7,18 @@ echo ""
 echo "Checking for package: $PACKAGE"
 echo ""
 
-# --- Check if package is installed using rpm or dpkg ---
 if rpm -q $PACKAGE &>/dev/null; then
-    # Package found using rpm (Red Hat/Fedora/CentOS systems)
     echo "✓ $PACKAGE is INSTALLED on this system"
     echo ""
     echo "Package Details:"
-    # Extract version, license, and summary information
     rpm -qi $PACKAGE | grep -E 'Version|License|Summary|Release'
     
 elif dpkg -l | grep -q "^ii  $PACKAGE"; then
-    # Package found using dpkg (Debian/Ubuntu systems)
     echo "✓ $PACKAGE is INSTALLED on this system"
     echo ""
     echo "Package Details:"
     dpkg -l | grep "^ii  $PACKAGE"
 else
-    # Package not found
     echo "✗ $PACKAGE is NOT INSTALLED on this system"
     echo ""
     echo "To install it, try:"
@@ -44,7 +32,6 @@ echo "Philosophy Notes by Package:"
 echo "=================================="
 echo ""
 
-# --- Case statement to print philosophy notes ---
 case $PACKAGE in
     python3|python)
         echo "Python: A language shaped entirely by community consensus."
