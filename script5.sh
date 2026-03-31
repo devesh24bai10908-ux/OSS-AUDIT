@@ -1,9 +1,3 @@
-#!/bin/bash
-# Script 5: Open Source Manifesto Generator
-# Author: Shubham Mishra | Registration: 24BCY10064
-# Purpose: Generate a personalized open source philosophy statement
-# Concepts: read for user input, string concatenation, file output, date command
-
 echo "=================================="
 echo "  OPEN SOURCE MANIFESTO GENERATOR"
 echo "=================================="
@@ -14,34 +8,25 @@ echo ""
 echo "Answer the three questions below:"
 echo ""
 
-# --- Read user input for three questions ---
-# Question 1: Name an open-source tool used daily
 read -p "1. Name one open-source tool you use every day: " TOOL
 
-# Question 2: Define freedom in one word
 read -p "2. In one word, what does 'freedom' mean to you? " FREEDOM
 
-# Question 3: Something they would build and share freely
 read -p "3. Name one thing you would build and share freely: " BUILD
 
 echo ""
 
-# --- Generate timestamp for the manifesto ---
-DATE=$(date '+%d %B %Y')           # Date in format: 01 January 2024
-TIME=$(date '+%H:%M:%S')           # Time in format: 14:30:45
-USERNAME=$(whoami)                 # Get current user's name
-HOSTNAME=$(hostname)               # Get system hostname
+DATE=$(date '+%d %B %Y')           
+TIME=$(date '+%H:%M:%S')           
+USERNAME=$(whoami)                 
+HOSTNAME=$(hostname)               
 
-# --- Define output file name ---
 OUTPUT="manifesto_${USERNAME}_$(date '+%Y%m%d').txt"
 
-# --- Create the manifesto content using string concatenation ---
-# The manifesto uses the user's answers to create a personalized statement
 
 echo "Generating your manifesto..."
 echo ""
 
-# --- Write manifesto to file ---
 cat > "$OUTPUT" << EOF
 ╔════════════════════════════════════════════════════════════════╗
 ║     PERSONAL OPEN SOURCE MANIFESTO                             ║
@@ -105,7 +90,6 @@ This manifesto was created by the author through reflection on open
 source values and is hereby placed in the public domain.
 EOF
 
-# --- Confirm file creation and display the manifesto ---
 echo "✓ Manifesto created successfully!"
 echo ""
 echo "Saved to: $OUTPUT"
@@ -115,7 +99,6 @@ echo "YOUR MANIFESTO:"
 echo "═══════════════════════════════════════════════════════════════"
 echo ""
 
-# --- Display the created manifesto to the user ---
 cat "$OUTPUT"
 
 echo ""
