@@ -1,24 +1,17 @@
 #!/bin/bash
-# Script 1: System Identity Report
-# Author: Shubham Mishra | Registration: 24BCY10064
-# Purpose: Display system information as a welcome screen
-# Concepts: variables, echo, command substitution, output formatting
 
-# --- Variables ---
-STUDENT_NAME="Shubham Mishra"
-REG_NUMBER="24BCY10064"
-SOFTWARE_CHOICE="Python"  # Change this to your chosen software
+STUDENT_NAME="Devesh Agarwal"
+REG_NUMBER="24BAI10908"
+SOFTWARE_CHOICE="Python" 
 
-# --- System information using command substitution ---
-KERNEL=$(uname -r)                          # Get kernel version
-DISTRO=$(cat /etc/os-release | grep "^NAME" | cut -d'"' -f2)  # Get distribution name
-USER_NAME=$(whoami)                         # Get current user
-HOME_DIR=$(echo $HOME)                      # Get home directory path
-UPTIME=$(uptime -p)                         # Get system uptime
-CURRENT_DATE=$(date '+%A, %d %B %Y')       # Get formatted date
-CURRENT_TIME=$(date '+%H:%M:%S')           # Get formatted time
+KERNEL=$(uname -r)                          
+DISTRO=$(cat /etc/os-release | grep "^NAME" | cut -d'"' -f2)  
+USER_NAME=$(whoami)                         
+HOME_DIR=$(echo $HOME)                     
+UPTIME=$(uptime -p)                        
+CURRENT_DATE=$(date '+%A, %d %B %Y')       
+CURRENT_TIME=$(date '+%H:%M:%S')           
 
-# --- Display welcome screen with formatting ---
 echo "=================================="
 echo "   OPEN SOURCE AUDIT PROJECT"
 echo "=================================="
