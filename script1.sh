@@ -1,5 +1,3 @@
-#!/bin/bash
-
 STUDENT_NAME="Devesh Agarwal"
 REG_NUMBER="24BAI10908"
 SOFTWARE_CHOICE="Python" 
