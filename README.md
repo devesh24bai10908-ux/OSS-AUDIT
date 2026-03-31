@@ -4,8 +4,8 @@
 ---
 
 ## Student Information
-- **Name:** Shubham Mishra
-- **Registration Number:** 24BCY10064
+- **Name:** Devesh Agarwal
+- **Registration Number:** 24BAI10908
 - **Course:** Open Source Software (OSS NGMC)
 - **Chosen Software:** Python
 
@@ -357,8 +357,8 @@ bash script1.sh  # Run with bash explicitly
 
 ## Author
 
-**Shubham Mishra**
-- Registration: 24BCY10064
+**Devesh Agarwal**
+- Registration: 24BAI10908
 - Course: Open Source Software (OSS NGMC)
 - VIT Bhopal University
 
